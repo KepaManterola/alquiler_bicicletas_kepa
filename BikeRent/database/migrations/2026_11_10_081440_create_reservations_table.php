@@ -11,18 +11,17 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('bicycle_id')->constrained()->onDelete('cascade');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->decimal('total_price', 8, 2);
+            $table->foreignId('bike_id')->constrained('bikes')->onDelete('cascade');
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
             $table->string('status')->default('pending');
+            $table->decimal('total_cost', 8, 2)->default(0);
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('bookings');
     }
 };
-

@@ -10,20 +10,16 @@ return new class extends Migration
     {
         Schema::create('bikes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('type');
+            $table->string('serial_number')->unique();
+            $table->string('model');
             $table->decimal('price_per_hour', 8, 2);
-            $table->string('image')->nullable();
-            $table->boolean('available')->default(true);
+            $table->enum('status', ['available', 'maintenance', 'retired'])->default('available');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('bicycles');
+        Schema::dropIfExists('bikes');
     }
 };
-
-
