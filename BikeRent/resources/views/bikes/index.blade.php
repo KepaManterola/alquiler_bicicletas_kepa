@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BikeRent - Bicicletas</title>
+    <title>BikeRent</title>
 </head>
 <body>
 
-    <h1>BikeRent</h1>
+    <h1>Bienvenido a BikeRent</h1>
+
+    <p>Alquila tu bicicleta de forma rapida y sencilla.</p>
+    
+    @guest
+        <a href="{{ route('login') }}">Iniciar sesión</a>
+        <a href="{{ route('register') }}">Registrarse</a>
+    @endguest
+
+    @auth
+        <a href="{{ route('bookings.index') }}">Mis reservas</a>
+    @endauth
+
+    <hr>
+
     <h2>Catálogo de bicicletas</h2>
 
     @if ($bikes->isEmpty())
