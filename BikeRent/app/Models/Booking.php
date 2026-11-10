@@ -7,15 +7,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Booking extends Model
 {
-    protected $table = 'reservations';
+    protected $table = 'bookings';
 
     protected $fillable = [
         'user_id',
-        'bicycle_id',
-        'start_date',
-        'end_date',
-        'total_price',
-        'status'
+        'bike_id',
+        'start_time',
+        'end_time',
+        'status',
+        'total_cost'
+    ];
+
+    protected $casts = [
+        'start_time' => 'datetime',
+        'end_time' => 'datetime',
+        'total_cost' => 'decimal:2'
     ];
 
     public function user(): BelongsTo
@@ -25,7 +31,6 @@ class Booking extends Model
 
     public function bike(): BelongsTo
     {
-        return $this->belongsTo(Bike::class, 'bicycle_id');
+        return $this->belongsTo(Bike::class, 'bike_id');
     }
 }
-

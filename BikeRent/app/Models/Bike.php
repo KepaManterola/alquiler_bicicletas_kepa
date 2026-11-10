@@ -10,17 +10,14 @@ class Bike extends Model
     protected $table = 'bikes';
 
     protected $fillable = [
-        'name',
-        'description',
-        'type',
+        'serial_number',
+        'model',
         'price_per_hour',
-        'image',
-        'available'
+        'status'
     ];
 
     public function bookings(): HasMany
     {
-        return $this->hasMany(Booking::class, 'bicycle_id');
+        return $this->hasMany(Booking::class, 'bike_id');
     }
 }
-
