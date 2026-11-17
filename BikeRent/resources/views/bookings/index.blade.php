@@ -9,6 +9,10 @@
 
     <h1>BikeRent</h1>
     <h2>Mis reservas</h2>
+    
+    @if (session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
 
     @if ($bookings->isEmpty())
         <p>No tienes ninguna reserva.</p>

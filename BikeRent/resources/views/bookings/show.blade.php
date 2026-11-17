@@ -9,6 +9,9 @@
 
     <h1>BikeRent</h1>
     <h2>Detalles de la reserva</h2>
+    @if (session('success'))
+        <p>{{ session('success') }}</p>
+    @endif
 
     <h3>{{ $booking->bike->model }}</h3>
 
