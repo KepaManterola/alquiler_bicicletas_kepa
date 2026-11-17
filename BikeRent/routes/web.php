@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [BikeController::class, 'index'])->name('bikes.index');
 
+Route::get('/bikes', [BikeController::class, 'index'])->name('bikes.list');
+
 Route::get('/bikes/{bike}', [BikeController::class, 'show'])->name('bikes.show');
 
 Route::middleware('auth')->group(function () {
