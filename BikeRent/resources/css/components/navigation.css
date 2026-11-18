@@ -1,0 +1,111 @@
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 25px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand img {
+    max-height: 45px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-link {
+    color: #444;
+    padding: 25px 0;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+    color: #2563eb;
+}
+
+.navbar-user {
+    position: relative;
+}
+
+.navbar-user-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.navbar-dropdown {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    min-width: 170px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.navbar-dropdown a,
+.navbar-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-dropdown a:hover,
+.navbar-dropdown button:hover {
+    background: #f1f5f9;
+}
+
+.navbar-toggle,
+.navbar-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar-links,
+    .navbar-user {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    .navbar-mobile {
+        padding: 15px 25px;
+        border-top: 1px solid #eee;
+    }
+
+    .navbar-mobile a,
+    .navbar-mobile button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        text-align: left;
+        color: #333;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
